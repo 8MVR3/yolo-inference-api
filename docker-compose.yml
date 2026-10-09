@@ -1,0 +1,12 @@
+name: yolo-api
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      MODEL_PATH: /app/weights/best.pt
+      IMGSZ: "640"
+    volumes:
+      - ./weights:/app/weights:ro
+    restart: unless-stopped
